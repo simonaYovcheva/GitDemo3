@@ -3,6 +3,7 @@ package pages;
 import base.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -11,12 +12,15 @@ import java.time.Duration;
 public class LoginPage extends BasePage {
 
     @FindBy(id = "input-username")
+    @CacheLookup
     private WebElement usernameInputField;
 
     @FindBy(id = "input-password")
+    @CacheLookup
     private WebElement passwordInputField;
 
     @FindBy(className = "btn-primary")
+    @CacheLookup
     private WebElement loginButton;
 
     private static final String URL = "https://shop.pragmatic.bg/admin";
