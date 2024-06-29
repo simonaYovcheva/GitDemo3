@@ -35,7 +35,7 @@ public class CategoriesPage extends LeftNavigationMenu {
     @FindBy(xpath = "//*[@class='fa fa-sign-out']/ ..")
     private WebElement logoutButton;
 
-    @FindBy(xpath = "//*[@id='content']/div[2]/div[1]")
+    @FindBy(xpath = "//div[contains(@class, 'alert-success') and contains(., 'Success')]")
     private WebElement successMessageElement;
 
     public void setNewCategoriesButton() {

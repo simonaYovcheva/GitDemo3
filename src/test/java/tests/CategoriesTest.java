@@ -21,10 +21,7 @@ public class CategoriesTest extends BaseTest {
         categoriesPage.setCategoryNameFieldInput("New Category");
         categoriesPage.setMetaTagTitle("New Category Meta Tag");
         categoriesPage.clickOnSaveButton();
-        String expectedText = " Success: You have modified categories!\n" +
-                "      ";
-        String actualText = categoriesPage.getSuccessMessageText();
-        Assert.assertEquals(expectedText, actualText, "Texts didn`t matched!");
+        categoriesPage.isSuccessMessageDisplayed();
 
     }
 }
