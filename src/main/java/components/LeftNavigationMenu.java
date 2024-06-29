@@ -26,11 +26,11 @@ public class LeftNavigationMenu {
     @CacheLookup
     private WebElement ordersButton;
 
-//    public LeftNavigationMenu(WebDriver driver) {
-//        super(driver);
-////        this.driver = driver;
-//        PageFactory.initElements(driver, this);
-//    }
+    public LeftNavigationMenu(WebDriver driver) {
+        super();
+        PageFactory.initElements(driver, this);
+    }
+
 
     public void goToCatalog() {
 

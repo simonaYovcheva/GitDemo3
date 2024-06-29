@@ -5,15 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class CategoriesPage extends LeftNavigationMenu {
 
-//    public CategoriesPage(WebDriver driver) {
-//        super(driver);
-//    }
+    public CategoriesPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
 
-    @FindBy(xpath = "//*[@class='btn btn-default']")
+    @FindBy(xpath = "//*[@id='content']/div[1]/div/div/a[1]")
     @CacheLookup
     private WebElement addNewCategoriesButton;
 
@@ -32,6 +34,9 @@ public class CategoriesPage extends LeftNavigationMenu {
     private WebElement saveNewCategoryButton;
     @FindBy(xpath = "//*[@class='fa fa-sign-out']/ ..")
     private WebElement logoutButton;
+
+    @FindBy(xpath = "//*[@id='content']/div[2]/div[1]")
+    private WebElement successMessageElement;
 
     public void setNewCategoriesButton() {
         addNewCategoriesButton.click();
@@ -55,4 +60,12 @@ public class CategoriesPage extends LeftNavigationMenu {
     public void verifyWebElementIsPresent(WebElement webElement) {
         Assert.assertTrue(webElement.isDisplayed());
     }
+    public String getSuccessMessageText() {
+        return successMessageElement.getText();
+    }
+
+    public boolean isSuccessMessageDisplayed() {
+        return successMessageElement.isDisplayed();
+    }
+
 }
