@@ -11,6 +11,7 @@ public class App {
 
     private FrontEndPageUser frontEndPageUser;
     private AddToCartProductPage addToCartProductPage;
+    private NewRegistrationPage newRegistrationPage;
 
     public App(WebDriver driver) {
         this.driver = driver;
@@ -47,5 +48,12 @@ public class App {
             frontEndPageUser = new FrontEndPageUser(driver);
         }
         return frontEndPageUser;
+    }
+
+    public NewRegistrationPage newRegistrationPage() {
+        if (newRegistrationPage == null) {
+            newRegistrationPage = new NewRegistrationPage(driver);
+        }
+        return newRegistrationPage;
     }
 }

@@ -23,6 +23,9 @@ public class LoginPage extends BasePage {
     @CacheLookup
     private WebElement loginButton;
 
+    @FindBy(xpath = "//*[@class='alert alert-danger alert-dismissible']")
+    private WebElement loginErrorMessage;
+
     private static final String URL = "https://shop.pragmatic.bg/admin";
 
     public LoginPage(WebDriver driver) {
@@ -51,5 +54,8 @@ public class LoginPage extends BasePage {
         writeIntoPasswordInputField(password);
         clickLoginButton();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+    }
+    public boolean isLoginErrorMessageDisplayed() {
+        return loginErrorMessage.isDisplayed();
     }
 }
