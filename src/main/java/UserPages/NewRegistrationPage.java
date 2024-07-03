@@ -1,4 +1,4 @@
-package pages;
+package UserPages;
 
 import base.BasePage;
 import org.apache.commons.lang3.RandomStringUtils;

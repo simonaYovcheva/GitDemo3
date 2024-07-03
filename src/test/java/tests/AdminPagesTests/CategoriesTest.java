@@ -1,11 +1,8 @@
-package tests;
+package tests.AdminPagesTests;
 
 import base.BaseTest;
-import components.LeftNavigationMenu;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CategoriesPage;
+import pages.AdminPages.CategoriesPage;
 
 public class CategoriesTest extends BaseTest {
 

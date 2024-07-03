@@ -1,9 +1,9 @@
-package tests;
+package tests.AdminPagesTests;
 
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.OrderPageAdmin;
+import pages.AdminPages.OrderPageAdmin;
 
 public class OrderPageAdminTest extends BaseTest {
 

@@ -1,7 +1,12 @@
 package core;
 
+import UserPages.AddToCartProductPage;
+import UserPages.FrontEndPageUser;
+import UserPages.NewRegistrationPage;
 import org.openqa.selenium.WebDriver;
-import pages.*;
+import pages.AdminPages.DashboardPage;
+import pages.AdminPages.LoginPage;
+import pages.AdminPages.OrderPageAdmin;
 
 public class App {
     private WebDriver driver;

@@ -1,4 +1,4 @@
-package tests;
+package tests.AdminPagesTests;
 
 import base.BaseTest;
 import org.testng.annotations.Test;

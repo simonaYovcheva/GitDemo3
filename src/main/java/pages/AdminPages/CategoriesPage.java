@@ -1,4 +1,4 @@
-package pages;
+package pages.AdminPages;
 
 import components.LeftNavigationMenu;
 import org.openqa.selenium.WebDriver;
