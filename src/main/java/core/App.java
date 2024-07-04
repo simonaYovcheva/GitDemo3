@@ -13,7 +13,6 @@ public class App {
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private OrderPageAdmin orderPageAdmin;
-
     private FrontEndPageUser frontEndPageUser;
     private AddToCartProductPage addToCartProductPage;
     private NewRegistrationPage newRegistrationPage;
