@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class DataDrivenTestUserLogin extends BaseTest {
-    //Ow2432@pek.com
+
 
     @DataProvider()
     public Object[][] dataProvider() {
