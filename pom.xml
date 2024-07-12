@@ -40,12 +40,12 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>4.2.0</version>
+            <version>7.3.0</version> <!-- or the latest version -->
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
-            <version>4.2.0</version>
+            <version>7.3.0</version> <!-- or the latest version -->
         </dependency>
 
     </dependencies>

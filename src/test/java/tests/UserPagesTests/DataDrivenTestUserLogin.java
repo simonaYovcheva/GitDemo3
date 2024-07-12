@@ -2,11 +2,19 @@ package tests.UserPagesTests;
 
 import UserPages.FrontEndPageUser;
 import base.BaseTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DataDrivenTestUserLogin extends BaseTest {
+public class DataDrivenTestUserLogin {
 
+    private BaseTest baseTest;
+
+    @BeforeMethod
+    public void setUp() {
+        baseTest = new BaseTest();
+        baseTest.setup();
+    }
 
     @DataProvider()
     public Object[][] dataProvider() {
@@ -23,14 +31,14 @@ public class DataDrivenTestUserLogin extends BaseTest {
 
     @Test(dataProvider = "dataProvider")
     public void testDdtForUserLogin(String email, String password, String expectedMessage){
-        app.frontEndPageUser().goToUserFrontEndPage();
-        app.frontEndPageUser().clickOnMyAccountButton();
-        app.frontEndPageUser().clickOnLoginButtonForUser();
-        app.frontEndPageUser().writeIntoUserEmailLoginField(email);
-        app.frontEndPageUser().writeIntoUserPasswordForLogin(password);
-        app.frontEndPageUser().clickOnLoginButtonUser();
+        baseTest.app.frontEndPageUser().goToUserFrontEndPage();
+        baseTest.app.frontEndPageUser().clickOnMyAccountButton();
+        baseTest.app.frontEndPageUser().clickOnLoginButtonForUser();
+        baseTest.app.frontEndPageUser().writeIntoUserEmailLoginField(email);
+        baseTest.app.frontEndPageUser().writeIntoUserPasswordForLogin(password);
+        baseTest.app.frontEndPageUser().clickOnLoginButtonUser();
 
-        FrontEndPageUser frontEndPageUser = new FrontEndPageUser(driver);
+        FrontEndPageUser frontEndPageUser = new FrontEndPageUser(baseTest.driver);
 
         if (expectedMessage.equals("My Account")) {
             frontEndPageUser.assertForSuccessLogin();

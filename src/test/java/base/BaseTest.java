@@ -3,26 +3,33 @@ package base;
 import core.App;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
+import io.cucumber.java.Before;
+import io.cucumber.java.After;
 import java.time.Duration;
 
 public class BaseTest {
-    public WebDriver driver;
-    protected App app;
+    public static WebDriver driver;
+    public App app;
 
-    @BeforeMethod
-    public void setup() {
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
-        app = new App(driver);
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().window().maximize();
+        }
+        return driver;
     }
 
-    @AfterMethod
+    @Before
+    public void setup() {
+        app = new App(getDriver());
+    }
+
+    @After
     public void tearDown(){
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
