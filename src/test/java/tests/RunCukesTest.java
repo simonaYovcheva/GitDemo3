@@ -1,13 +1,12 @@
 package tests;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-
-@CucumberOptions(plugin = {"progress", "html:target/cucumber-html-report"},
-        features = "src/test/resources",
-        tags = "@loginTest")
-
+@CucumberOptions(
+        plugin = {"pretty", "html:target/cucumber-html-report"},
+        features = "src/test/resources/userLogin.feature",
+        tags = "@loginTest"
+)
 public class RunCukesTest extends AbstractTestNGCucumberTests {
-
 }

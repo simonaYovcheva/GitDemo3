@@ -1,35 +1,59 @@
 package tests.UserPagesTests;
 
 import base.BaseTest;
-import org.openqa.selenium.WebElement;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AddToCartProductTest extends BaseTest {
+public class AddToCartProductTest {
+
+    private BaseTest baseTest;
+
+    @BeforeMethod
+    public void setUp() {
+        baseTest = new BaseTest();
+        baseTest.setup();
+    }
+
     @Test
     public void newUserOrderTest() {
-        app.frontEndPageUser().goToUserFrontEndPage();
-        app.frontEndPageUser().clickIPhoneOrder();
-        app.addToCartProductPage().changeQuantityOfTheProduct("2");
-        app.addToCartProductPage().clickAddToCartButton();
-        app.addToCartProductPage().clickCartTotalButton();
-        app.addToCartProductPage().clickCheckoutButtonDropDownMenu();
-        app.addToCartProductPage().clickRadioButtonGuestCheckout();
-        app.addToCartProductPage().clickContinueButtonNewCustomerOrder();
-        app.addToCartProductPage().typeIntoFirstNameInputField("Simona");
-        app.addToCartProductPage().typeIntoLastNameInputField("Iordanova");
-        app.addToCartProductPage().randomEmail();
-        app.addToCartProductPage().typeIntoTelephoneInputField("0888888888");
-        app.addToCartProductPage().typeIntoAddress1InputField("Iskar");
-        app.addToCartProductPage().typeIntoCityInputField("Sofia");
-        app.addToCartProductPage().typeIntoPostCodeInputField("1010");
-        app.addToCartProductPage().setCountryFromDropDownSelectMenu("33");
-        app.addToCartProductPage().selectRegionAndCityFromDropDownMenu("498");
-        app.addToCartProductPage().clickContinueButtonBillingDetails();
-        app.addToCartProductPage().clickContinueButtonDeliveryMethod();
-        app.addToCartProductPage().clickTermsAndConditionsButton();
-        app.addToCartProductPage().clickContinueButtonPaymentMethod();
-        app.addToCartProductPage().clickConfirmOrderButton();
-        app.addToCartProductPage().assertContentHeading();
+        navigateToUserFrontEnd();
+        placeOrderWithGuestCheckout();
+    }
 
+    private void navigateToUserFrontEnd() {
+        baseTest.app.frontEndPageUser().goToUserFrontEndPage();
+        baseTest.app.frontEndPageUser().clickIPhoneOrder();
+    }
+
+    private void placeOrderWithGuestCheckout() {
+        baseTest.app.addToCartProductPage().changeQuantityOfTheProduct("2");
+        baseTest.app.addToCartProductPage().clickAddToCartButton();
+        baseTest.app.addToCartProductPage().clickCartTotalButton();
+        baseTest.app.addToCartProductPage().clickCheckoutButtonDropDownMenu();
+        fillGuestCheckoutDetails();
+        finalizeOrder();
+    }
+
+    private void fillGuestCheckoutDetails() {
+        baseTest.app.addToCartProductPage().clickRadioButtonGuestCheckout();
+        baseTest.app.addToCartProductPage().clickContinueButtonNewCustomerOrder();
+        baseTest.app.addToCartProductPage().typeIntoFirstNameInputField("Simona");
+        baseTest.app.addToCartProductPage().typeIntoLastNameInputField("Iordanova");
+        baseTest.app.addToCartProductPage().randomEmail();
+        baseTest.app.addToCartProductPage().typeIntoTelephoneInputField("0888888888");
+        baseTest.app.addToCartProductPage().typeIntoAddress1InputField("Iskar");
+        baseTest.app.addToCartProductPage().typeIntoCityInputField("Sofia");
+        baseTest.app.addToCartProductPage().typeIntoPostCodeInputField("1010");
+        baseTest.app.addToCartProductPage().setCountryFromDropDownSelectMenu("33");
+        baseTest.app.addToCartProductPage().selectRegionAndCityFromDropDownMenu("498");
+        baseTest.app.addToCartProductPage().clickContinueButtonBillingDetails();
+    }
+
+    private void finalizeOrder() {
+        baseTest.app.addToCartProductPage().clickContinueButtonDeliveryMethod();
+        baseTest.app.addToCartProductPage().clickTermsAndConditionsButton();
+        baseTest.app.addToCartProductPage().clickContinueButtonPaymentMethod();
+        baseTest.app.addToCartProductPage().clickConfirmOrderButton();
+        baseTest.app.addToCartProductPage().assertContentHeading();
     }
 }
